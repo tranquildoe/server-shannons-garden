@@ -11,34 +11,32 @@ const userSchema = new Schema (
         name: String,
         email: {
             type: String,
-            unique: true
+            unique: true,
+            required: true
         },
         username: {
             type: String,
-            unique: true   
+            unique: true,
+            required: true
+   
         },
         about: String,
         avatarUrl: {
             type: String,
             default: 'images/defaultAvatar.png'
         },
-
-        
-        // const userSchema = new Schema({
-        //     email: {
-        //       type: String
-        //     },
-        //     username: {
-        //       type: String
-        //     },
-        //     avatarUrl: {
-        //       type: String,
-        //       default: 'images/default-avatar.png'
-        //     }
-        //   });
-
-        password: String,
-        confirmPassword: String,
+        zipCode: {
+            type: Number,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        confirmPassword: {
+            type: String,
+            required: true
+        },
         mySeedList: [
             {
                 // seedId: ObjectId,
