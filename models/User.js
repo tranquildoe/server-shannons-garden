@@ -18,10 +18,25 @@ const userSchema = new Schema (
             unique: true   
         },
         about: String,
-        avatar: {
+        avatarUrl: {
             type: String,
-            default: "https://www.drupal.org/files/issues/default-avatar.png"
-        }, 
+            default: 'images/defaultAvatar.png'
+        },
+
+        
+        // const userSchema = new Schema({
+        //     email: {
+        //       type: String
+        //     },
+        //     username: {
+        //       type: String
+        //     },
+        //     avatarUrl: {
+        //       type: String,
+        //       default: 'images/default-avatar.png'
+        //     }
+        //   });
+
         password: String,
         confirmPassword: String,
         mySeedList: [
