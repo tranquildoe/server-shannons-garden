@@ -96,11 +96,43 @@ app.get("/", (req, res) => {
 // const authRouter = require("./routes/auth.js");
 // const messageRouter = require("./routes/message.js");
 // const searchRouter = require("./routes/search.js");
-// const usersRouter = require("./routes/users.js");
+const usersRouter = require("./routes/users.js");
+const seedsRouter = require("./routes/seeds");
 
 // app.use(authRouter);
 // app.use(messageRouter);
 // app.use(searchRouter);
-// app.use(usersRouter);
+app.use(usersRouter);
+app.use(seedsRouter);
 
 module.exports = app;
+
+
+// //------------------------------------------
+// // SPLITED ROUTING
+// // ------------------------------------------
+
+// const albumsRouter = require(".//albums.js");
+// const artistsRouter = require(".//artists.js");
+// const authRouter = require(".//auth.js");
+// const commentsRouter = require(".//comments.js");
+// const contactRouter = require(".//contact.js");
+// const labelRouter = require(".//labels.js");
+// const ratesRouter = require(".//rates.js");
+// const stylesRouter = require(".//styles.js");
+// const searchRouter = require(".//search.js");
+// const usersRouter = require(".//users.js");
+
+// app.use(albumsRouter);
+// app.use(artistsRouter);
+// app.use(authRouter);
+// app.use(commentsRouter);
+// app.use(contactRouter);
+// app.use(labelRouter);
+// app.use(ratesRouter);
+// app.use(searchRouter);
+// app.use(stylesRouter);
+// app.use(usersRouter);
+
+// module.exports = app;
+

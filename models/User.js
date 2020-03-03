@@ -39,18 +39,50 @@ const userSchema = new Schema (
         },
         mySeedList: [
             {
-                // seedId: ObjectId,
-                // ref: Seed,
+                // The seedId in the next line references the ObjectId(_id) in the seeds document on MongoDB under shannonsGarden (these exist apart from any users or owners):
+
+                // user: {
+                //     type: Schema.Types.ObjectId,
+                //     ref: "User",
+                //     required: true
+                // }
+                
+                seedId: {
+                    type: Schema.Types.ObjectId,
+                    ref: "Seeds"
+                },
+                myNotes: String,
+
+                // Better to just have the following on the seedSchema, I think, then can pull the info from the DB for that seedID
+
+                // commonName: String,
+                // latinName: String,
+                // variety: String,
+                // isOpenPollinated: Boolean,
+                // isHeirloom: Boolean,
+                // isHybrid: Boolean,
+                // isMedicinal: Boolean,
+                // isEdible: Boolean,
+                // edibleParts: String,
+                // the following is for plant api reference, to insert later:
+                // id: Number,
+                
                 forTrade: {
                     type: Boolean,
                     default: false
-                }
+                },
+
+
             }
         ],
         myWishList: [
             {
-                // seedId: ObjectId,
-                // ref: Seed  
+                  
+                seedId: {
+                    type: Schema.Types.ObjectId,
+                    ref: "Seeds"
+                },
+                myNotes: String,
             }
         ]    
     }

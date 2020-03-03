@@ -6,14 +6,14 @@ const seedSchema = new Schema (
         commonName: String,
         latinName: String,
         variety: String,
-        notes: String,
         isOpenPollinated: Boolean,
         isHeirloom: Boolean,
         isHybrid: Boolean,
         isMedicinal: Boolean,
         isEdible: Boolean,
-        // if isEdible == "true", show the following line:
         edibleParts: String,
+        // the following is for plant api reference, to insert later:
+        id: Number
         
        
     }

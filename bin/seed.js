@@ -2,7 +2,8 @@ require("dotenv").config(); // import all key/value pairs from .env in process.e
 require("./../config/mongo");
 // const mongoose = require('mongoose');
 
-const userModel = require("./../models/User");
+// const userModel = require("./../models/User");
+const seedModel = require("./../models/Seeds");
 
 // const dbName = 'shannonsGarden';
 
@@ -28,23 +29,54 @@ async function seedIt() {
 
     
     
-    const user =
+    // const user =
+    // {   
+    //     role: "user",
+    //     name: "Original User",
+    //     email: "shannon@shannon.com",
+    //     username: "original",
+    //     about: "I love trading seeds!",
+    //     password: 1234,
+    //     confirmPassword: 1234
+    // };
+
+    const seeds =
+    [
+      {   
+      commonName: "Tepary Beans",
+      latinName: "Phaseolus acutifolius",
+      variety: 'Mitla Black',
+      notes: "Tepary beans are one of the most heat and drought tolerant crop varieties in the world. This is a rare black bean.",
+      isOpenPollinated: true,
+      isHeirloom: true,
+      isHybrid: false,
+      isMedicinal: false,
+      isEdible: true,
+      edibleParts: "cooked seeds, shoots, leaves",
+      id: 0   
+    },
     {   
-        role: "user",
-        name: "Original User",
-        email: "shannon@shannon.com",
-        username: "original",
-        about: "I love trading seeds!",
-        password: 1234,
-        confirmPassword: 1234
-        
-    };
+      commonName: "Basil",
+      latinName: "Ocimum basilicum",
+      variety: 'Genovese',
+      notes: "great for Italian dishes",
+      isOpenPollinated: true,
+      isHeirloom: true,
+      isHybrid: false,
+      isMedicinal: true,
+      isEdible: true,
+      edibleParts: "leaves, flower buds", 
+      id: 0 
+  
+    }
+  ];
     
-    const userSeed = await userModel.create(user);
-    
+    // const userSeed = await userModel.create(user);
+    const seedSeed = await seedModel.create(seeds);
 
     console.log("All good");
-    console.log(userSeed);
+    // console.log(userSeed);
+    console.log(seedSeed);
 
   }
   catch (err) {
