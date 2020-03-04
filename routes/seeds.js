@@ -9,7 +9,8 @@ const seedInstanceModel = require("../models/SeedInstance");
 
 router.get("/seeds", async (req, res, next) => {
   try {
-    res.json({ seedInstances: await seedInstanceModel.find() });
+    //populate with 'plantID' is added here so can access the info through this Id, to the plants doc in the DB - Cool!
+    res.json({ seedInstances: await seedInstanceModel.find().populate('plantId') });
   } catch (dbErr) {
     next(dbErr);
   }

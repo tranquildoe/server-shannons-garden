@@ -18,6 +18,6 @@ const plantSchema = new Schema (
        
     }
 );
-
-const plantModel = mongoose.model("Plant", plantSchema);
+// Need "plants" here so routing for addSeedInstancePage will work (see seeds.js line 12 (PH)):
+const plantModel = mongoose.model("plants", plantSchema);
 module.exports = plantModel;
