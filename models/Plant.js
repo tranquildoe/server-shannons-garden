@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const seedSchema = new Schema (
+const plantSchema = new Schema (
     {
         commonName: String,
         latinName: String,
-        variety: String,
+        
         isOpenPollinated: Boolean,
         isHeirloom: Boolean,
         isHybrid: Boolean,
@@ -19,5 +19,5 @@ const seedSchema = new Schema (
     }
 );
 
-const seedModel = mongoose.model("Seeds", seedSchema);
-module.exports = seedModel;
+const plantModel = mongoose.model("Plant", plantSchema);
+module.exports = plantModel;

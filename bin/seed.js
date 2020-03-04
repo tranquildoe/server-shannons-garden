@@ -3,7 +3,8 @@ require("./../config/mongo");
 // const mongoose = require('mongoose');
 
 // const userModel = require("./../models/User");
-const seedModel = require("./../models/Seeds");
+const seedInstanceModel = require("./../models/SeedInstance");
+// const plantModel = require("./../models/Plant")
 
 // const dbName = 'shannonsGarden';
 
@@ -29,54 +30,139 @@ async function seedIt() {
 
     
     
-    // const user =
-    // {   
-    //     role: "user",
-    //     name: "Original User",
-    //     email: "shannon@shannon.com",
-    //     username: "original",
-    //     about: "I love trading seeds!",
-    //     password: 1234,
-    //     confirmPassword: 1234
-    // };
+  //   const users =
+  //  [
+  //   {   
+  //       role: "admin",
+  //       name: "Shannon",
+  //       email: "shannon@shannon.com",
+  //       username: "TranquilDoe",
+  //       about: "I love trading seeds!",
+  //       zipCode: 75011,
+  //       password: "shannon",
+  //       confirmPassword: "shannon"
+  //   },
 
-    const seeds =
-    [
-      {   
-      commonName: "Tepary Beans",
-      latinName: "Phaseolus acutifolius",
-      variety: 'Mitla Black',
-      notes: "Tepary beans are one of the most heat and drought tolerant crop varieties in the world. This is a rare black bean.",
-      isOpenPollinated: true,
-      isHeirloom: true,
-      isHybrid: false,
-      isMedicinal: false,
-      isEdible: true,
-      edibleParts: "cooked seeds, shoots, leaves",
-      id: 0   
-    },
-    {   
-      commonName: "Basil",
-      latinName: "Ocimum basilicum",
-      variety: 'Genovese',
-      notes: "great for Italian dishes",
-      isOpenPollinated: true,
-      isHeirloom: true,
-      isHybrid: false,
-      isMedicinal: true,
-      isEdible: true,
-      edibleParts: "leaves, flower buds", 
-      id: 0 
+  //   {   
+  //     role: "user",
+  //     name: "Whitman",
+  //     email: "whitman@whitman.com",
+  //     username: "I'mWhitty",
+  //     about: "Seeds are amazing!",
+  //     zipCode: 10013,
+  //     password: "whitman",
+  //     confirmPassword: "whitman"
+  // },
+
+  // {   
+  //   role: "user",
+  //   name: "Emerson",
+  //   email: "emerson@emerson.com",
+  //   username: "Emmy",
+  //   about: "I really enjoy eating food I've grown.",
+  //   zipCode: 10437,
+  //   password: "emerson",
+  //   confirmPassword: "emerson"
+  // }
+  // ];
+
+const seedInstances =
+[
+  {
+    userID: "5e5f852818dabe218008b029",
+  plantId: "5e5f76818a563f1485f28938",
+ 
   
-    }
-  ];
-    
-    // const userSeed = await userModel.create(user);
-    const seedSeed = await seedModel.create(seeds);
+  variety: 'Genovese',
 
+  myNotes: "great with Italian dishes",
+  forTrade: true,
+  isOpenPollinated: true,
+  isHeirloom: true,
+  isHybrid: false,
+  isMedicinal: true,
+  isEdible: true,
+  edibleParts: "leaves, flower buds",
+  },
+
+  {
+    userID: "5e5f852818dabe218008b02a",
+  plantId: "5e5f76818a563f1485f28939",
+ 
+  
+  variety: "none",
+
+  myNotes: "great flavor",
+  forTrade: true,
+  isOpenPollinated: true,
+  isHeirloom: true,
+  isHybrid: false,
+  isMedicinal: true,
+  isEdible: true,
+  edibleParts: "leaves, flower buds",
+  },
+
+  {
+    userID: "5e5f852818dabe218008b02b",
+  plantId: "5e5f76818a563f1485f28937",
+ 
+  
+  variety: 'Mitla Black',
+
+  myNotes: "A rare black tepary bean. Tepary beans are among the most heat and drought tolerant crops in the world.",
+  forTrade: true,
+  isOpenPollinated: true,
+  isHeirloom: true,
+  isHybrid: false,
+  isMedicinal: false,
+  isEdible: true,
+  edibleParts: "flowers, leaves(tough), cooked seeds(beans)",
+  }
+];
+  //   const plants =
+  //   [
+  //     {   
+  //     commonName: "Tepary Beans",
+  //     latinName: "Phaseolus acutifolius",
+  //     isOpenPollinated: true,
+  //     isHeirloom: true,
+  //     isHybrid: false,
+  //     isMedicinal: false,
+  //     isEdible: true,
+  //     edibleParts: "flowers, leaves(tough), cooked seeds",
+  //     id: 0   
+  //   },
+  //   {   
+  //     commonName: "Basil",
+  //     latinName: "Ocimum basilicum",
+  //     isOpenPollinated: true,
+  //     isHeirloom: true,
+  //     isHybrid: false,
+  //     isMedicinal: true,
+  //     isEdible: true,
+  //     edibleParts: "leaves, flower buds", 
+  //     id: 0 
+  //   },
+  //   {   
+  //     commonName: "Oregano",
+  //     latinName: "Origanum vulgare",
+  //     isOpenPollinated: true,
+  //     isHeirloom: true,
+  //     isHybrid: false,
+  //     isMedicinal: true,
+  //     isEdible: true,
+  //     edibleParts: "leaves, flower buds", 
+  //     id: 0 
+  //   }
+  // ];
+    
+    // const userSeed = await userModel.create(users);
+    const seedInstanceSeed = await seedInstanceModel.create(seedInstances);
+    // const plantSeed = await plantModel.create(plants);
     console.log("All good");
     // console.log(userSeed);
-    console.log(seedSeed);
+    console.log(seedInstanceSeed);
+    // console.log(plantSeed);
 
   }
   catch (err) {

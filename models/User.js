@@ -25,6 +25,7 @@ const userSchema = new Schema (
             type: String,
             default: 'images/defaultAvatar.png'
         },
+        // UK postal codes have letters in them - figure this out later
         zipCode: {
             type: Number,
             required: true
@@ -37,54 +38,6 @@ const userSchema = new Schema (
             type: String,
             required: true
         },
-        mySeedList: [
-            {
-                // The seedId in the next line references the ObjectId(_id) in the seeds document on MongoDB under shannonsGarden (these exist apart from any users or owners):
-
-                // user: {
-                //     type: Schema.Types.ObjectId,
-                //     ref: "User",
-                //     required: true
-                // }
-                
-                seedId: {
-                    type: Schema.Types.ObjectId,
-                    ref: "Seeds"
-                },
-                myNotes: String,
-
-                // Better to just have the following on the seedSchema, I think, then can pull the info from the DB for that seedID
-
-                // commonName: String,
-                // latinName: String,
-                // variety: String,
-                // isOpenPollinated: Boolean,
-                // isHeirloom: Boolean,
-                // isHybrid: Boolean,
-                // isMedicinal: Boolean,
-                // isEdible: Boolean,
-                // edibleParts: String,
-                // the following is for plant api reference, to insert later:
-                // id: Number,
-                
-                forTrade: {
-                    type: Boolean,
-                    default: false
-                },
-
-
-            }
-        ],
-        myWishList: [
-            {
-                  
-                seedId: {
-                    type: Schema.Types.ObjectId,
-                    ref: "Seeds"
-                },
-                myNotes: String,
-            }
-        ]    
     }
 );
 

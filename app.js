@@ -98,12 +98,14 @@ app.get("/", (req, res) => {
 // const searchRouter = require("./routes/search.js");
 const usersRouter = require("./routes/users.js");
 const seedsRouter = require("./routes/seeds");
+const plantsRouter = require("./routes/plants");
 
 // app.use(authRouter);
 // app.use(messageRouter);
 // app.use(searchRouter);
 app.use(usersRouter);
 app.use(seedsRouter);
+app.use(plantsRouter);
 
 module.exports = app;
 

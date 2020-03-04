@@ -1,34 +1,34 @@
 /*------------------------------------------
-// SEEDS ROUTING
+// PLANTS ROUTING
 ------------------------------------------*/
 
 
 const express = require("express");
 const router = new express.Router();
-const seedInstanceModel = require("../models/SeedInstance");
+const plantModel = require("../models/Plant");
 
-router.get("/seeds", async (req, res, next) => {
+router.get("/plants", async (req, res, next) => {
   try {
-    res.json({ seedInstances: await seedInstanceModel.find() });
+    res.json({ plants: await plantModel.find() });
   } catch (dbErr) {
     next(dbErr);
   }
 });
 
-router.post("/seeds", async (req, res, next) => {
+router.post("/plants", async (req, res, next) => {
   console.log(req.body);
   
   try {
-    const dbRes = await seedInstanceModel.create(req.body)
+    const dbRes = await plantModel.create(req.body)
     res.status(200).json(dbRes);
   } catch (dbErr) {
     next(dbErr);
   }
 });
 
-router.get("/seeds/:id", async (req, res, next) => {
+router.get("/plants/:id", async (req, res, next) => {
   try {
-    res.json(await seedInstanceModel.findById(req.params.id));
+    res.json(await plantModel.findById(req.params.id));
   } catch (dbErr) {
     next(dbErr);
   }
