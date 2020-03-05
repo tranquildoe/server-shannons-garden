@@ -26,6 +26,28 @@ router.post("/plants", async (req, res, next) => {
   }
 });
 
+// router.post("/create-shop/:id", uploadCloud.single("image"), (req, res, next) => {
+//   const {
+//     address,
+//     phone,
+//     description
+//   } = req.body; //type
+//   const newPoulet = {
+//     address,
+//     phone,
+//     description,
+//   };
+//   if (req.file) newPoulet.image = req.file.secure_url;
+//   shopModel
+//     .findByIdAndUpdate(req.params.id, newPoulet, {
+//       new: true
+//     })
+//     .then(dbRes => {
+//       res.json(dbRes);
+//     })
+//     .catch(next);
+// });
+
 router.get("/plants/:id", async (req, res, next) => {
   try {
     res.json(await plantModel.findById(req.params.id));

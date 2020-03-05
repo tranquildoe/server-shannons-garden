@@ -5,7 +5,8 @@
 
 const express = require("express");
 const router = new express.Router();
-const seedInstanceModel = require("../models/SeedInstance");
+// const seedInstanceModel = require("../models/SeedInstance");
+const seedModel = require("./../models/Seed")
 
 router.get("/seeds", async (req, res, next) => {
 
@@ -32,10 +33,43 @@ router.post("/seeds", async (req, res, next) => {
   try {
     const dbRes = await seedInstanceModel.create(newSeed)
     res.status(200).json(dbRes);
+    console.log("yes")
   } catch (dbErr) {
+    console.log("here")
     next(dbErr);
   }
 });
+
+// router.post("/styles", (req, res, next) => {
+//   const { name, color, wikiURL } = req.body;
+
+//   styleModel
+//     .create({ name, color, wikiURL })
+//     .then(dbRes => res.status(200).json(dbRes))
+//     .catch(next);
+// });
+
+// router.post("/create-shop/:id", uploadCloud.single("image"), (req, res, next) => {
+  //   const {
+  //     address,
+  //     phone,
+  //     description
+  //   } = req.body; //type
+  //   const newPoulet = {
+  //     address,
+  //     phone,
+  //     description,
+  //   };
+  //   if (req.file) newPoulet.image = req.file.secure_url;
+  //   shopModel
+  //     .findByIdAndUpdate(req.params.id, newPoulet, {
+  //       new: true
+  //     })
+  //     .then(dbRes => {
+  //       res.json(dbRes);
+  //     })
+  //     .catch(next);
+  // });
 
 router.get("/seeds/:id", async (req, res, next) => {
   try {
