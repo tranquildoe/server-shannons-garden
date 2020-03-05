@@ -23,7 +23,7 @@ const userSchema = new Schema (
         about: String,
         avatarUrl: {
             type: String,
-            default: 'images/defaultAvatar.png'
+            default: '/images/defaultAvatar.png'
         },
         // UK postal codes have letters in them - figure this out later
         zipCode: {

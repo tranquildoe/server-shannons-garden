@@ -26,7 +26,7 @@ router.get("/seeds", async (req, res, next) => {
 router.get("/seeds/:userID", async (req, res, next) => {
 
   const q = {
-    _id: req.params.userID
+    userID: req.params.userID
   };
   
   if (req.query.isForTrade === "true") {
