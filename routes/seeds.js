@@ -5,8 +5,7 @@
 
 const express = require("express");
 const router = new express.Router();
-// const seedInstanceModel = require("../models/SeedInstance");
-const seedModel = require("./../models/Seed")
+const seedInstanceModel = require("../models/SeedInstance");
 
 router.get("/seeds", async (req, res, next) => {
 
