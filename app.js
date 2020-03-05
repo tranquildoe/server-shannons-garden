@@ -1,13 +1,15 @@
 // initial config
 require("dotenv").config(); // import all key/value pairs from .env in process.env : really usefull when going online :)
 require("./config/mongo"); // database connection setup
+require("./config/passport");
+
 // require("./config/passport");
 // dependencies injection
 const express = require("express");
 const session = require("express-session"); //sessions make data persist between http calls
 // const passport = require("passport"); // auth library (needs sessions)
 const cors = require("cors");
-const _DEVMODE = true;
+const _DEVMODE = false;
 
 // ------------------------------------------
 // SERVER CONFIG
@@ -87,16 +89,16 @@ app.get("/", (req, res) => {
 // SPLITED ROUTING
 // ------------------------------------------
 
-// const authRouter = require("./routes/auth.js");
 // const messageRouter = require("./routes/message.js");
 // const searchRouter = require("./routes/search.js");
 const usersRouter = require("./routes/users.js");
 const seedsRouter = require("./routes/seeds");
 const plantsRouter = require("./routes/plants");
+const authRouter = require("./routes/auth.js");
 
-// app.use(authRouter);
 // app.use(messageRouter);
 // app.use(searchRouter);
+app.use(authRouter);
 app.use(usersRouter);
 app.use(seedsRouter);
 app.use(plantsRouter);
