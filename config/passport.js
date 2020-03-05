@@ -31,7 +31,7 @@ passport.use(
   new LocalStrategy(
     { usernameField: "email" }, // change default username credential to email
     function(email, passwd, next) {
-      // console.log("local strategy", email, passwd);
+      console.log("local strategy", email, passwd);
       userModel
         .findOne({ email: email })
         .then(user => {

@@ -3,11 +3,10 @@ require("dotenv").config(); // import all key/value pairs from .env in process.e
 require("./config/mongo"); // database connection setup
 require("./config/passport");
 
-// require("./config/passport");
 // dependencies injection
 const express = require("express");
 const session = require("express-session"); //sessions make data persist between http calls
-// const passport = require("passport"); // auth library (needs sessions)
+const passport = require("passport"); // auth library (needs sessions)
 const cors = require("cors");
 const _DEVMODE = false;
 
@@ -56,8 +55,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // passport init : these rules MUST set be after session setup (lines above)
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //------------------------------------------
 // Check Loggedin Users

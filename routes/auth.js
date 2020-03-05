@@ -44,12 +44,12 @@ router.post("/signup", uploader.single("avatar"), (req, res, next) => {
   };
 
   // check if an avatar FILE has been posted
-  if (req.file) newUser.avatar = req.file.secure_url;
+  if (req.file) newUser.avatarUrl = req.file.secure_url;
 
   userModel
     .create(newUser)
     .then(newUserFromDB => {
-      res.status(200).json({msg: "signup ok"});
+      res.status(200).json({ msg: "signup ok" });
     })
     .catch(err => {
       console.log("signup error", err);
@@ -75,17 +75,28 @@ router.post("/signin", (req, res, next) => {
       // You may find usefull to send some other infos
       // dont send sensitive informations back to the client
       // let's choose the exposed user below
-      const { _id, username, email, favorites, avatar, role } = user;
+      const {
+        _id,
+        role,
+        name,
+        email,
+        username,
+        about,
+        avatarUrl,
+        zipCode
+      } = user;
       // and only expose non-sensitive inofrmations to the client's state
       next(
         res.status(200).json({
           currentUser: {
             _id,
-            username,
-            email,
-            avatar,
             role,
-            favorites
+            name,
+            email,
+            username,
+            about,
+            avatarUrl,
+            zipCode
           }
         })
       );
@@ -101,17 +112,26 @@ router.post("/signout", (req, res, next) => {
 router.use("/is-loggedin", (req, res, next) => {
   if (req.isAuthenticated()) {
     // method provided by passport
-    const { _id, username, favorites, email, avatar, role } = req.user;
+    const {
+      _id,
+      role,
+      name,
+      email,
+      username,
+      about,
+      avatarUrl,
+      zipCode
+    } = req.user;
     return res.status(200).json({
-      currentUser: {
-        _id,
-        username,
-        email,
-        avatar,
-        favorites,
-        role
-      }
-    });
+     currentUser:{ _id,
+      role,
+      name,
+      email,
+      username,
+      about,
+      avatarUrl,
+      zipCode
+    }});
   }
   res.status(403).json("Unauthorized");
 });
