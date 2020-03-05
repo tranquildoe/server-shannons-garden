@@ -16,14 +16,37 @@ router.get("/seeds", async (req, res, next) => {
 
   try {
     //populate with 'plantID' is added here so can access the info through this Id, to the plants doc in the DB - Cool!
-    res.json({ seedInstances: await seedInstanceModel.find(q).populate('plantId') });
+    res.json({ seedInstances: await seedInstanceModel.find(q).populate('plantId').populate("userID")});
   } catch (dbErr) {
     next(dbErr);
   }
 });
 
+
+router.get("/seeds/:userID", async (req, res, next) => {
+
+  const q = {
+    _id: req.params.userID
+  };
+  
+  if (req.query.isForTrade === "true") {
+    q.forTrade = true
+  }
+
+  console.log(q);
+  
+
+  try {
+    //populate with 'plantID' is added here so can access the info through this Id, to the plants doc in the DB - Cool!
+    res.json({ seedInstances: await seedInstanceModel.find(q).populate('plantId').populate("userID")});
+  } catch (dbErr) {
+    next(dbErr);
+  }
+});
+
+
+
 router.post("/seeds", async (req, res, next) => {
-  console.log(req.body);
 
   const newSeed = {...req.body};
 
