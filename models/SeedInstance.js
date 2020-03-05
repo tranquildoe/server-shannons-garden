@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const seedInstanceSchema = new Schema (
+const seedInstanceSchema = new Schema(
     {
         userID: {
             type: Schema.Types.ObjectId,
@@ -22,12 +22,27 @@ const seedInstanceSchema = new Schema (
             type: Boolean,
             default: false
         },
-        isOpenPollinated: Boolean,
-        isHeirloom: Boolean,
-        isHybrid: Boolean,
-        isMedicinal: Boolean,
-        isEdible: Boolean,
-        edibleParts: String,   
+        isOpenPollinated: {
+            type: Boolean,
+            default: false
+        },
+        isHeirloom: {
+            type: Boolean,
+            default: false
+        },
+        isHybrid: {
+            type: Boolean,
+            default: false
+        },
+        isMedicinal: {
+            type: Boolean,
+            default: false
+        },
+        isEdible: {
+            type: Boolean,
+            default: false
+        },
+        edibleParts: String,
     }
 );
 

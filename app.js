@@ -7,7 +7,7 @@ const express = require("express");
 const session = require("express-session"); //sessions make data persist between http calls
 // const passport = require("passport"); // auth library (needs sessions)
 const cors = require("cors");
-const _DEVMODE = false;
+const _DEVMODE = true;
 
 // ------------------------------------------
 // SERVER CONFIG
@@ -60,26 +60,20 @@ app.use(cors(corsOptions));
 //------------------------------------------
 // Check Loggedin Users
 // ------------------------------------------
-// if (_DEVMODE === true) {
-//   app.use(function devMode(req, res, next) {
-//     req.user = {
-//       _id: "5de9c376fa023e21a766a606",
-//       username: "guillaume",
-//       email: "gui@foo.bar",
-//       avatar:
-//         "https://res.cloudinary.com/gdaconcept/image/upload/v1575298339/user-pictures/jadlcjjnspfhknucjfkd.png",
-//       role: "admin",
-//       favorites: {
-//         artists: ["5ded0f32701e2f8732a0513c"],
-//         albums: ["5ded24e254c2839b2badf011"],
-//         styles: [],
-//         labels: []
-//       }
-//     };
+if (_DEVMODE === true) {
+  app.use(function devMode(req, res, next) {
+    req.user = {
+      _id: "5e6110a7473b62e064722a66",
+      username: "Shannon",
+      email: "shannon@foo.bar",
+      avatar:
+        "https://res.cloudinary.com/gdaconcept/image/upload/v1575298339/user-pictures/jadlcjjnspfhknucjfkd.png",
+      role: "admin"
+    };
 
-//     next();
-//   });
-// }
+    next();
+  });
+}
 
 //------------------------------------------
 // BASE BACKEND ROUTE

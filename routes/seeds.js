@@ -8,9 +8,15 @@ const router = new express.Router();
 const seedInstanceModel = require("../models/SeedInstance");
 
 router.get("/seeds", async (req, res, next) => {
+
+  const q = {};
+  if (req.query.isForTrade === "true") {
+    q.forTrade = true
+  }
+
   try {
     //populate with 'plantID' is added here so can access the info through this Id, to the plants doc in the DB - Cool!
-    res.json({ seedInstances: await seedInstanceModel.find().populate('plantId') });
+    res.json({ seedInstances: await seedInstanceModel.find(q).populate('plantId') });
   } catch (dbErr) {
     next(dbErr);
   }
@@ -18,9 +24,13 @@ router.get("/seeds", async (req, res, next) => {
 
 router.post("/seeds", async (req, res, next) => {
   console.log(req.body);
+
+  const newSeed = {...req.body};
+
+  newSeed.userID = req.user._id
   
   try {
-    const dbRes = await seedInstanceModel.create(req.body)
+    const dbRes = await seedInstanceModel.create(newSeed)
     res.status(200).json(dbRes);
   } catch (dbErr) {
     next(dbErr);
@@ -35,12 +45,18 @@ router.get("/seeds/:id", async (req, res, next) => {
   }
 });
 
+router.patch("/seeds/:id", async (req, res, next) => {
+  try {
+    res.json(await seedInstanceModel.findByIdAndUpdate(req.params.id, req.body));
+  } catch (dbErr) {
+    next(dbErr);
+  }
+});
+
+
 // router.get("/users/:id/favorites", async (req, res, next) => {
 //   res.status(200).json({ msg: "@todo" })
 // });
 
-// router.patch("/users/favorites/:resourceType/:id", async (req, res, next) => {
-//   res.status(200).json({ msg: "@todo" })
-// });
 
 module.exports = router;
