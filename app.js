@@ -13,6 +13,7 @@ const _DEVMODE = false;
 // ------------------------------------------
 // SERVER CONFIG
 // ------------------------------------------
+
 const app = express();
 
 // // Allow server to parse body from POST Request
@@ -22,6 +23,16 @@ const app = express();
  *  HEY YOU ! Happy to see that you read comments.
  *  the lines below are useful (maybe in your project too :)
  */
+// this rule allows the client app to exchange via http via the server (AJAX ... Axios)
+const corsOptions = {
+  origin: [process.env.CLIENT_URL],
+  /* credentials : Configures the Access-Control-Allow-Credentials CORS header. Set to true to pass the header, otherwise it is omitted  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials */
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+// cors middle on
+app.use(cors(corsOptions));
 
 // Allow server to parse JSON from AJAX Request and apply the data to req.body
 app.use(express.json());
@@ -42,17 +53,6 @@ app.use(
     secret: process.env.SECRET_SESSION
   })
 );
-
-// this rule allows the client app to exchange via http via the server (AJAX ... Axios)
-const corsOptions = {
-  origin: [process.env.CLIENT_URL],
-  /* credentials : Configures the Access-Control-Allow-Credentials CORS header. Set to true to pass the header, otherwise it is omitted  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials */
-  credentials: true,
-  optionsSuccessStatus: 200
-};
-
-// cors middle on
-app.use(cors(corsOptions));
 
 // passport init : these rules MUST set be after session setup (lines above)
 app.use(passport.initialize());
@@ -103,4 +103,3 @@ app.use(seedsRouter);
 app.use(plantsRouter);
 
 module.exports = app;
-
