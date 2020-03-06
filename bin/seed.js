@@ -30,41 +30,41 @@ async function seedIt() {
 
     
     
-    const users =
-   [
-    {   
-        role: "admin",
-        name: "Shannon",
-        email: "shannon@shannon.com",
-        username: "TranquilDoe",
-        about: "I love trading seeds!",
-        zipCode: 75011,
-        password: "shannon",
-        confirmPassword: "shannon"
-    },
+  //   const users =
+  //  [
+  //   {   
+  //       role: "admin",
+  //       name: "Shannon",
+  //       email: "shannon@shannon.com",
+  //       username: "TranquilDoe",
+  //       about: "I love trading seeds!",
+  //       zipCode: 75011,
+  //       password: "shannon",
+  //       confirmPassword: "shannon"
+  //   },
 
-    {   
-      role: "user",
-      name: "Whitman",
-      email: "whitman@whitman.com",
-      username: "I'mWhitty",
-      about: "Seeds are amazing!",
-      zipCode: 10013,
-      password: "whitman",
-      confirmPassword: "whitman"
-  },
+  //   {   
+  //     role: "user",
+  //     name: "Whitman",
+  //     email: "whitman@whitman.com",
+  //     username: "I'mWhitty",
+  //     about: "Seeds are amazing!",
+  //     zipCode: 10013,
+  //     password: "whitman",
+  //     confirmPassword: "whitman"
+  // },
 
-  {   
-    role: "user",
-    name: "Emerson",
-    email: "emerson@emerson.com",
-    username: "Emmy",
-    about: "I really enjoy eating food I've grown.",
-    zipCode: 10437,
-    password: "emerson",
-    confirmPassword: "emerson"
-  }
-  ];
+  // {   
+  //   role: "user",
+  //   name: "Emerson",
+  //   email: "emerson@emerson.com",
+  //   username: "Emmy",
+  //   about: "I really enjoy eating food I've grown.",
+  //   zipCode: 10437,
+  //   password: "emerson",
+  //   confirmPassword: "emerson"
+  // }
+  // ];
 
 // const seedInstances =
 // [
@@ -86,7 +86,7 @@ async function seedIt() {
 //   },
 
 //   {
-//     userID: "5e5f852818dabe218008b02a",
+//    userID: "5e5f852818dabe218008b02a",
 //   plantId: "5e5f76818a563f1485f28939",
  
   
@@ -119,46 +119,46 @@ async function seedIt() {
 //   edibleParts: "flowers, leaves(tough), cooked seeds(beans)",
 //   }
 // ];
-  //   const plants =
-  //   [
-  //     {   
-  //     commonName: "Tepary Beans",
-  //     latinName: "Phaseolus acutifolius",
-  //     isOpenPollinated: true,
-  //     isHeirloom: true,
-  //     isHybrid: false,
-  //     isMedicinal: false,
-  //     isEdible: true,
-  //     edibleParts: "flowers, leaves(tough), cooked seeds",
-  //     id: 0   
-  //   },
-  //   {   
-  //     commonName: "Basil",
-  //     latinName: "Ocimum basilicum",
-  //     isOpenPollinated: true,
-  //     isHeirloom: true,
-  //     isHybrid: false,
-  //     isMedicinal: true,
-  //     isEdible: true,
-  //     edibleParts: "leaves, flower buds", 
-  //     id: 0 
-  //   },
-  //   {   
-  //     commonName: "Oregano",
-  //     latinName: "Origanum vulgare",
-  //     isOpenPollinated: true,
-  //     isHeirloom: true,
-  //     isHybrid: false,
-  //     isMedicinal: true,
-  //     isEdible: true,
-  //     edibleParts: "leaves, flower buds", 
-  //     id: 0 
-  //   }
-  // ];
+    const plants =
+    [
+      {   
+      commonName: "Tepary Beans",
+      latinName: "Phaseolus acutifolius",
+      isOpenPollinated: true,
+      isHeirloom: true,
+      isHybrid: false,
+      isMedicinal: false,
+      isEdible: true,
+      edibleParts: "flowers, leaves(tough), cooked seeds",
+      id: 0   
+    },
+    {   
+      commonName: "Basil",
+      latinName: "Ocimum basilicum",
+      isOpenPollinated: true,
+      isHeirloom: true,
+      isHybrid: false,
+      isMedicinal: true,
+      isEdible: true,
+      edibleParts: "leaves, flower buds", 
+      id: 0 
+    },
+    {   
+      commonName: "Oregano",
+      latinName: "Origanum vulgare",
+      isOpenPollinated: true,
+      isHeirloom: true,
+      isHybrid: false,
+      isMedicinal: true,
+      isEdible: true,
+      edibleParts: "leaves, flower buds", 
+      id: 0 
+    }
+  ];
     
-    const userSeed = await userModel.create(users);
+    // const userSeed = await userModel.create(users);
     // const seedInstanceSeed = await seedInstanceModel.create(seedInstances);
-    // const plantSeed = await plantModel.create(plants);
+    const plantSeed = await plantModel.create(plants);
     console.log("All good");
     // console.log(userSeed);
     // console.log(seedInstanceSeed);
